@@ -33,6 +33,21 @@
           "name": "rows",
           "value": "",
           "label": "Rows"
+        },
+        {
+          "component": "multiselect",
+          "name": "style",
+          "label": "Style",
+          "options": [
+            {
+              "name": "Hero Home",
+              "value": "hero-home"
+            },
+            {
+              "name": "Landing Hero",
+              "value": "landing-hero"
+            }
+          ]
         }
       ]
     }
