@@ -4,8 +4,6 @@
  * https://www.hlx.live/developer/block-collection/embed
  */
 
-import { ctaClickInteraction } from '../../dl.js';
-
 const loadScript = (url, callback, type) => {
   const head = document.querySelector('head');
   const script = document.createElement('script');
@@ -19,10 +17,10 @@ const loadScript = (url, callback, type) => {
 };
 
 const getDefaultEmbed = (url) => `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="${url.href}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen="" allow="autoplay"
-        scrolling="no" allow="encrypted-media" title="Content from ${url.hostname}" loading="lazy">
-      </iframe>
-    </div>`;
+    <iframe src="${url.href}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen=""
+      scrolling="no" allow="encrypted-media" title="Content from ${url.hostname}" loading="lazy">
+    </iframe>
+  </div>`;
 
 const embedYoutube = (url, autoplay) => {
   const usp = new URLSearchParams(url.search);
@@ -32,12 +30,10 @@ const embedYoutube = (url, autoplay) => {
   if (url.origin.includes('youtu.be')) {
     [, vid] = url.pathname.split('/');
   }
-
   const embedHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-        <iframe src="https://www.youtube.com/${embed}?rel=0${suffix}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
-        allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; picture-in-picture" allowfullscreen="" scrolling="no" title="Content from Youtube" loading="lazy"></iframe>
-      </div>`;
-
+      <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : embed}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
+      allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; picture-in-picture" allowfullscreen="" scrolling="no" title="Content from Youtube" loading="lazy"></iframe>
+    </div>`;
   return embedHTML;
 };
 
@@ -45,11 +41,11 @@ const embedVimeo = (url, autoplay) => {
   const [, video] = url.pathname.split('/');
   const suffix = autoplay ? '?muted=1&autoplay=1' : '';
   const embedHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-        <iframe src="https://player.vimeo.com/video/${video}${suffix}" 
-        style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
-        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen  
-        title="Content from Vimeo" loading="lazy"></iframe>
-      </div>`;
+      <iframe src="https://player.vimeo.com/video/${video}${suffix}" 
+      style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
+      frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen  
+      title="Content from Vimeo" loading="lazy"></iframe>
+    </div>`;
   return embedHTML;
 };
 
@@ -58,16 +54,6 @@ const embedTwitter = (url) => {
   loadScript('https://platform.twitter.com/widgets.js');
   return embedHTML;
 };
-
-const videoTag = (url) => {
-  // <source src="movie.ogg" type="video/ogg">
-  const videoHTML = `<div class="videotag">
-          <video controls autoplay>
-                    <source src="${url.href}" type="video/mp4">
-          </video>
-  </div>`
-  return videoHTML;
-}
 
 const loadEmbed = (block, link, autoplay) => {
   if (block.classList.contains('embed-is-loaded')) {
@@ -87,10 +73,6 @@ const loadEmbed = (block, link, autoplay) => {
       match: ['twitter'],
       embed: embedTwitter,
     },
-    {
-      match: ['video'],
-      embed: videoTag,
-    }
   ];
 
   const config = EMBEDS_CONFIG.find((e) => e.match.some((match) => link.includes(match)));
@@ -102,17 +84,6 @@ const loadEmbed = (block, link, autoplay) => {
     block.innerHTML = getDefaultEmbed(url);
     block.classList = 'block embed';
   }
-
-  try {
-    const data = {};
-    data.click_text = 'Video Play';
-    data.cta_position = block.closest('.section').querySelector('.default-content-wrapper').querySelector('h1, h2, h3, h4, h5, h6').textContent.trim();
-    ctaClickInteraction(data);
-    // block.querySelector('iframe').getAttribute('src').trim()
-  } catch (error) {
-    console.warn(error);
-  }
-
   block.classList.add('embed-is-loaded');
 };
 
@@ -139,6 +110,4 @@ export default function decorate(block) {
     });
     observer.observe(block);
   }
-
-  // playVideoOnClick(block);
 }
