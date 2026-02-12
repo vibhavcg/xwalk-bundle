@@ -18,7 +18,14 @@
       "fragment",
       "embed",
       "video",
+      "accordion-group",
       "quote"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordion"
     ]
   },
   {
@@ -39,7 +46,8 @@
       "text",
       "image",
       "button",
-      "title"
+      "title",
+      "accordion-group"
     ]
   }
 ]

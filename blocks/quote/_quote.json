@@ -23,14 +23,14 @@
         {
           "component": "richtext",
           "valueType": "string",
-          "name": "quoteText",
-          "label": "Quote Text"
+          "name": "quote",
+          "label": "Quote"
         },
         {
           "component": "richtext",
           "valueType": "string",
-          "name": "attributionText",
-          "label": "Attribution Text"
+          "name": "attribution",
+          "label": "Attribution"
         }
       ]
     }
