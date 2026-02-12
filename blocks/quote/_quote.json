@@ -21,7 +21,7 @@
       "id": "quote",
       "fields": [
         {
-          "component": "text",
+          "component": "richtext",
           "valueType": "string",
           "name": "quoteText",
           "label": "Quote Text"
