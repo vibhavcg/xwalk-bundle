@@ -136,6 +136,14 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Hero Home",
+            "value": "hero-home"
+          },
+          {
+            "name": "Landing Hero",
+            "value": "landing-hero"
           }
         ]
       }
