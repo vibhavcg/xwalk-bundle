@@ -263,6 +263,12 @@
         "valueType": "string",
         "name": "quoteText",
         "label": "Quote Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "attributionText",
+        "label": "Attribution Text"
       }
     ]
   },
