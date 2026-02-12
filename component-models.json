@@ -81,13 +81,18 @@
     ]
   },
   {
-    "component": "multiselect",
-    "name": "style",
-    "label": "Style",
-    "options": [
+    "id": "section",
+    "fields": [
       {
-        "name": "Hero Description",
-        "value": "hero-description"
+        "component": "multiselect",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "Hero Description",
+            "value": "hero-description"
+          }
+        ]
       }
     ]
   },
