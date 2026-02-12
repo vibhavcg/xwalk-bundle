@@ -265,7 +265,7 @@
         "label": "Quote Text"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
         "name": "attributionText",
         "label": "Attribution Text"
