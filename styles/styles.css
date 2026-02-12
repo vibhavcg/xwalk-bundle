@@ -255,3 +255,52 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+/* section : hero-home */
+/* HERO SECTION */
+.section.hero-home {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+
+/* Anchor picture to the HERO, not the inner div */
+.section.hero-home > div > p:first-child picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;   /* force full viewport width */
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateX(calc(-50% + 50vw)); /* escape the centered wrapper */
+}
+
+/* Stretch the image */
+.section.hero-home picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.section.hero-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+
+/* Text above everything */
+.section.hero-home h1,
+.section.hero-home .button-container {
+  position: relative;
+  z-index: 3;
+}

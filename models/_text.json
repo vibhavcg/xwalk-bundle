@@ -13,5 +13,16 @@
       }
     }
   ],
-  "models": []
+  "models": [
+        {
+          "component": "multiselect",
+          "name": "style",
+          "label": "Style",
+          "options": [
+            {
+              "name": "Hero Description",
+              "value": "hero-description"
+            }
+          ]
+        }]
 }
