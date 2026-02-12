@@ -255,8 +255,8 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
 /* section : hero-home */
-/* HERO SECTION */
 .section.hero-home {
   position: relative;
   width: 100%;
@@ -294,7 +294,7 @@ main .section.highlight {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgb(0 0 0 / 45%);
   z-index: 1;
 }
 
