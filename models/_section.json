@@ -60,7 +60,8 @@
         "columns",
         "fragment",
         "embed",
-        "video"
+        "video",
+        "quote"
       ]
     }
   ]
